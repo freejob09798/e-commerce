@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 // Default route → Client page (no auth required)
 Route::get('/', [ClientController::class, 'index'])->name('client.home');
 // Dashboard (only for logged in users)
-Route::get('/dashboard', [ClientController::class, 'index'])->name('client.home');
+Route::get('/dashboard', [ClientController::class, 'index'])->name('client.dashboard');
 
 // Authenticated routes
 Route::middleware('auth')->group(function () {
@@ -37,7 +37,6 @@ Route::middleware('auth')->group(function () {
     // Chat Routes
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chat/send', [ChatController::class, 'sendMessage'])->name('chat.send');
-    Route::get('/chat/messages/{userId}', [ChatController::class, 'fetchMessages'])->name('chat.messages');
     Route::get('/chat/messages/{userId}/{beforeId?}', [ChatController::class, 'fetchMessages'])->name('chat.messages');
     Route::post('/chat/read/{userId}', [ChatController::class, 'markAsRead'])->name('chat.read');
     Route::get('/chat/unread-count', [ChatController::class, 'getUnreadCount'])->name('chat.unread-count');
@@ -54,7 +53,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
     // Chat Routes
     Route::get('/chat/users', [ChatController::class, 'getAdminUsers'])->name('chat.users');
-    Route::get('/chat/messages/{userId}', [ChatController::class, 'fetchMessages'])->name('chat.messages');
     Route::get('/chat/messages/{userId}/{beforeId?}', [ChatController::class, 'fetchMessages'])->name('chat.messages');
     Route::post('/chat/send', [ChatController::class, 'sendMessage'])->name('chat.send');
     Route::post('/chat/read/{userId}', [ChatController::class, 'markAsRead'])->name('chat.read');
@@ -146,7 +144,7 @@ Route::prefix('client')->name('client.')->middleware(['auth'])->group(function (
 // Routes that are public (no login required) (accessible by users with role 'client')
 Route::prefix('client')->name('client.')->group(function () {
     // Dashboard / Products list
-    Route::get('/dashboard', [ClientController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [ClientController::class, 'index'])->name('products');
     // Product show page
     Route::get('/product/{product}', [ClientController::class, 'show_product'])->name('product.show');
     // Cart page

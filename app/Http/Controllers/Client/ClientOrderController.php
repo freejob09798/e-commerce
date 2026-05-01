@@ -188,7 +188,7 @@ class ClientOrderController extends Controller
 
         // Handle payment proof upload
         if ($request->hasFile('payment_proof')) {
-            $path = $request->file('payment_proof')->store('payment-proofs', config('filesystems.default'));
+            $path = $request->file('payment_proof')->store('payment-proofs', 'cloudinary');
             $orderData['payment_proof'] = $path;
             Log::info('Payment proof uploaded:', ['path' => $path]);
         }
@@ -275,7 +275,7 @@ class ClientOrderController extends Controller
         }
 
         if ($request->hasFile('payment_proof')) {
-            $path = $request->file('payment_proof')->store('payment-proofs', config('filesystems.default'));
+            $path = $request->file('payment_proof')->store('payment-proofs', 'cloudinary');
 
             $order->update([
                 'payment_proof' => $path,

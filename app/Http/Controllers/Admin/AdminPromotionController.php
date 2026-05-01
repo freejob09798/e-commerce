@@ -24,9 +24,9 @@ class AdminPromotionController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        // Handle image upload like your product example
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('promotions', config('filesystems.default'));
+            $data['image'] = $request->file('image')->store('promotions', 'cloudinary');
         }
 
         $promotion = Promotion::create($data);
@@ -50,7 +50,7 @@ class AdminPromotionController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('promotions', config('filesystems.default'));
+            $data['image'] = $request->file('image')->store('promotions', 'cloudinary');
         }
 
          $promotion->update($data);

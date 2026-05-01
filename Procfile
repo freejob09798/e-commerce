@@ -1,2 +1,3 @@
-web: php artisan storage:link && php artisan migrate --force && php -S 0.0.0.0:$PORT -t public
+php artisan config:clear && php artisan cache:clear && php artisan serve --host=0.0.0.0 --port=$PORT
 worker: php artisan queue:work
+php artisan storage:link

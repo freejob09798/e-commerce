@@ -42,11 +42,11 @@ class AdminProductController extends Controller
 
         // Handle photo uploads
         if ($request->hasFile('photo1')) {
-            $data['photo1'] = $request->file('photo1')->store('products', config('filesystems.default'));
+            $data['photo1'] = $request->file('photo1')->store('products', 'cloudinary');
         }
 
         if ($request->hasFile('photo2')) {
-            $data['photo2'] = $request->file('photo2')->store('products', config('filesystems.default'));
+            $data['photo2'] = $request->file('photo2')->store('products', 'cloudinary');
         }
 
         Product::create($data);
@@ -78,11 +78,11 @@ class AdminProductController extends Controller
 
         // Handle updated photo uploads
         if ($request->hasFile('photo1')) {
-            $data['photo1'] = $request->file('photo1')->store('products', config('filesystems.default'));
+            $data['photo1'] = $request->file('photo1')->store('products', 'cloudinary');
         }
 
         if ($request->hasFile('photo2')) {
-            $data['photo2'] = $request->file('photo2')->store('products', config('filesystems.default'));
+            $data['photo2'] = $request->file('photo2')->store('products', 'cloudinary');
         }
 
         $product->update($data);

@@ -23,6 +23,11 @@ Route::get('/', [ClientController::class, 'index'])->name('client.home');
 // Dashboard (only for logged in users)
 Route::get('/dashboard', [ClientController::class, 'index'])->name('client.dashboard');
 
+Route::get('/run-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return 'Migrated!';
+});
+
 // Authenticated routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -127,7 +132,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     // Townships CRUD Management
     Route::resource('townships', AdminTownshipController::class);
     Route::post('townships/{township}/toggle', [AdminTownshipController::class, 'toggle'])->name('townships.toggle');
-
 });
 
 // Client routes (private routes / need login)
@@ -158,11 +162,10 @@ Route::prefix('client')->name('client.')->group(function () {
     Route::get('/faq', [StaticPagesController::class, 'faq'])->name('pages.faq');
     Route::get('/privacy', [StaticPagesController::class, 'privacy'])->name('pages.privacy');
     Route::get('/terms', [StaticPagesController::class, 'terms'])->name('pages.terms');
-
 });
 
 // Laravel auth routes
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Public API routes for location data (no auth required)
 Route::get('/api/locations', [App\Http\Controllers\Api\LocationController::class, 'getCities']);

@@ -9,9 +9,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->foreignId('city_id')->nullable()->after('postal_code')->constrained()->nullOnDelete();
-            $table->foreignId('township_id')->nullable()->after('city_id')->constrained()->nullOnDelete();
-            $table->decimal('delivery_fee', 10, 2)->nullable()->after('shipping_cost');
+            if (! Schema::hasColumn('orders', 'city_id')) {
+                $table->foreignId('city_id')->nullable()->after('postal_code')->constrained()->nullOnDelete();
+            }
+
+            if (! Schema::hasColumn('orders', 'township_id')) {
+                $table->foreignId('township_id')->nullable()->after('city_id')->constrained()->nullOnDelete();
+            }
+
+            if (! Schema::hasColumn('orders', 'delivery_fee')) {
+                $table->decimal('delivery_fee', 10, 2)->nullable()->after('shipping_cost');
+            }
         });
     }
 

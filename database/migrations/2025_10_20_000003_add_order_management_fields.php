@@ -31,30 +31,10 @@ return new class extends Migration
                     ->after('payment_status');
             }
 
-            if (! Schema::hasColumn('orders', 'delivery_fee')) {
-                $table->decimal('delivery_fee', 10, 2)
-                    ->default(0)
-                    ->after('total_amount');
-            }
-
             if (! Schema::hasColumn('orders', 'transaction_id')) {
                 $table->string('transaction_id')
                     ->nullable()
                     ->after('payment_proof');
-            }
-
-            if (! Schema::hasColumn('orders', 'city_id')) {
-                $table->foreignId('city_id')
-                    ->nullable()
-                    ->constrained()
-                    ->nullOnDelete();
-            }
-
-            if (! Schema::hasColumn('orders', 'township_id')) {
-                $table->foreignId('township_id')
-                    ->nullable()
-                    ->constrained()
-                    ->nullOnDelete();
             }
         });
     }
@@ -62,21 +42,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasColumn('orders', 'city_id')) {
-                $table->dropForeign(['city_id']);
-            }
-
-            if (Schema::hasColumn('orders', 'township_id')) {
-                $table->dropForeign(['township_id']);
-            }
-
             $columnsToDrop = array_filter([
                 Schema::hasColumn('orders', 'payment_status') ? 'payment_status' : null,
                 Schema::hasColumn('orders', 'order_status') ? 'order_status' : null,
                 Schema::hasColumn('orders', 'delivery_fee') ? 'delivery_fee' : null,
                 Schema::hasColumn('orders', 'transaction_id') ? 'transaction_id' : null,
-                Schema::hasColumn('orders', 'city_id') ? 'city_id' : null,
-                Schema::hasColumn('orders', 'township_id') ? 'township_id' : null,
             ]);
 
             if (! empty($columnsToDrop)) {

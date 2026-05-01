@@ -207,7 +207,7 @@
                     <tr class="hover:bg-gray-200/30 transition">
                         <td class="px-4 py-3 border-b">
                             @if($product->photo1)
-                                <img src="{{ asset('storage/' . $product->photo1) }}" 
+                                <img src="{{ Storage::url($product->photo1) }}" 
                                     alt="{{ $product->name }}" 
                                     class="w-12 h-12 object-cover rounded-md">
                             @else
@@ -265,7 +265,7 @@
                     <tr class="hover:bg-gray-200/30 transition">
                         <td class="px-4 py-3 border-b">
                             @if($product->photo1)
-                                <img src="{{ asset('storage/' . $product->photo1) }}" 
+                                <img src="{{ Storage::url($product->photo1) }}" 
                                     alt="{{ $product->name }}" 
                                     class="w-12 h-12 object-cover rounded-md">
                             @else

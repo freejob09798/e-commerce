@@ -26,7 +26,7 @@ class AdminPromotionController extends Controller
 
         // Handle image upload like your product example
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('promotions', 'public');
+            $data['image'] = $request->file('image')->store('promotions', config('filesystems.default'));
         }
 
         $promotion = Promotion::create($data);
@@ -50,7 +50,7 @@ class AdminPromotionController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('promotions', 'public');
+            $data['image'] = $request->file('image')->store('promotions', config('filesystems.default'));
         }
 
          $promotion->update($data);

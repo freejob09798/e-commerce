@@ -41,7 +41,7 @@
             <label for="logo" class="block text-gray-700 font-medium">Website Logo</label>
             @if(isset($info) && $info->logo)
                 <div class="mb-2">
-                    <img src="{{ asset('storage/' . $info->logo) }}" alt="Logo" class="w-32 h-32 object-cover rounded-md border">
+                    <img src="{{ Storage::url($info->logo) }}" alt="Logo" class="w-32 h-32 object-cover rounded-md border">
                 </div>
             @endif
             <input type="file" name="logo" id="logo" accept="image/*"

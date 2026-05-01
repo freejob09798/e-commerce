@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
     @if (!empty($websiteInfo->logo))
-        <link rel="icon" type="image/png" href="{{ asset('storage/' . $websiteInfo->logo) }}?v={{ time() }}">
+        <link rel="icon" type="image/png" href="{{ Storage::url($websiteInfo->logo) }}?v={{ time() }}">
     @endif
 
 
@@ -74,7 +74,7 @@
                     @foreach($promotions as $index => $promotion)
                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                         <a href="{{ $promotion->link ?? '#' }}" target="_blank" class="d-block text-center">
-                            <img src="{{ asset('storage/' . $promotion->image) }}" 
+                            <img src="{{ Storage::url($promotion->image) }}" 
                                 class="promotion-image" 
                                 alt="{{ $promotion->title ?? 'Promotion' }}">
                         </a>
@@ -169,7 +169,7 @@
                             <!-- Product Image -->
                            <div class="product-image-wrapper mb-2">
                             @if($product->photo1)
-                                <img src="{{ asset('storage/' . $product->photo1) }}" 
+                                 <img src="{{ Storage::url($product->photo1) }}"
                                     alt="{{ $product->name }}" 
                                     class="product-image img-fluid">
                             @else

@@ -25,7 +25,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     @if (!empty($websiteInfo->logo))
-            <link rel="icon" type="image/png" href="{{ asset('storage/' . $websiteInfo->logo) }}?v={{ time() }}">
+             <link rel="icon" type="image/png" href="{{ Storage::url($websiteInfo->logo) }}?v={{ time() }}">
     @endif
    <!-- Custom theme CSS -->
     @php
@@ -76,12 +76,12 @@
                             <div class="carousel-inner">
                                 @if($product->photo1)
                                 <div class="carousel-item active">
-                                    <img src="{{ asset('storage/' . $product->photo1) }}" class="d-block w-100 main-image" alt="{{ $product->name }}">
+                                    <img src="{{ Storage::url($product->photo1) }}" class="d-block w-100 main-image" alt="{{ $product->name }}">
                                 </div>
                                 @endif
                                 @if($product->photo2)
                                 <div class="carousel-item {{ $product->photo1 ? '' : 'active' }}">
-                                    <img src="{{ asset('storage/' . $product->photo2) }}" class="d-block w-100 main-image" alt="{{ $product->name }}">
+                                    <img src="{{ Storage::url($product->photo2) }}" class="d-block w-100 main-image" alt="{{ $product->name }}">
                                 </div>
                                 @endif
                                 @if(!$product->photo1 && !$product->photo2)

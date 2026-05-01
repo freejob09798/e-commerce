@@ -165,7 +165,7 @@
                         @if($order->payment_proof)
                         <div>
                             <div class="text-muted small">Payment Proof</div>
-                            <a href="{{ asset('storage/' . $order->payment_proof) }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                            <a href="{{ Storage::url($order->payment_proof) }}" target="_blank" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-image me-1"></i>View Proof
                             </a>
                         </div>

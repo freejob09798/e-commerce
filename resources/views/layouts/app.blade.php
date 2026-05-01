@@ -24,7 +24,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet">
         @if (!empty($websiteInfo->logo))
-            <link rel="icon" type="image/png" href="{{ asset('storage/' . $websiteInfo->logo) }}?v={{ time() }}">
+            <link rel="icon" type="image/png" href="{{ Storage::url($websiteInfo->logo) }}?v={{ time() }}">
         @endif
         <!-- Custom theme CSS -->
         @php

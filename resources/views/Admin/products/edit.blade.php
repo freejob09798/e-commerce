@@ -75,7 +75,7 @@
             <label for="photo1" class="block text-gray-700 font-medium">Photo 1</label>
             @if ($product->photo1)
                 <div class="mb-2">
-                    <img src="{{ asset('storage/' . $product->photo1) }}" alt="Photo 1" class="w-32 h-32 object-cover rounded-md border">
+                    <img src="{{ Storage::url($product->photo1) }}" alt="Photo 1" class="w-32 h-32 object-cover rounded-md border">
                 </div>
             @endif
             <input type="file" name="photo1" id="photo1" accept="image/*"
@@ -87,7 +87,7 @@
             <label for="photo2" class="block text-gray-700 font-medium">Photo 2</label>
             @if ($product->photo2)
                 <div class="mb-2">
-                    <img src="{{ asset('storage/' . $product->photo2) }}" alt="Photo 2" class="w-32 h-32 object-cover rounded-md border">
+                    <img src="{{ Storage::url($product->photo2) }}" alt="Photo 2" class="w-32 h-32 object-cover rounded-md border">
                 </div>
             @endif
             <input type="file" name="photo2" id="photo2" accept="image/*"

@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4 py-3">
     <a class="navbar-brand d-flex align-items-center" href="{{ route('client.dashboard') }}">
         @if(isset($websiteInfo) && $websiteInfo->logo)
-            <img src="{{ asset('storage/' . $websiteInfo->logo) }}" alt="{{ $websiteInfo->name ?? 'Electronics' }}" class="me-2" style="height:32px; width:auto;">
+            <img src="{{ Storage::url($websiteInfo->logo) }}" alt="{{ $websiteInfo->name ?? 'Electronics' }}" class="me-2" style="height:32px; width:auto;">
         @else
             <i class="bi bi-lightning-charge-fill me-2 text-primary"></i>
         @endif

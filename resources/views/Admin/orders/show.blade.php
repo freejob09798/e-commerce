@@ -185,10 +185,10 @@
                     <div>
                         <span class="text-gray-600 text-sm">Payment Proof:</span>
                         <div class="mt-2">
-                            <a href="{{ asset('storage/' . $order->payment_proof) }}" target="_blank" class="block">
-                                <img src="{{ asset('storage/' . $order->payment_proof) }}" alt="Payment Proof" class="max-w-full h-auto rounded-md border" style="max-height: 200px;">
+                            <a href="{{ Storage::url($order->payment_proof) }}" target="_blank" class="block">
+                                <img src="{{ Storage::url($order->payment_proof) }}" alt="Payment Proof" class="max-w-full h-auto rounded-md border" style="max-height: 200px;">
                             </a>
-                            <a href="{{ asset('storage/' . $order->payment_proof) }}" target="_blank" class="text-blue-500 text-sm hover:underline mt-1 block">
+                            <a href="{{ Storage::url($order->payment_proof) }}" target="_blank" class="text-blue-500 text-sm hover:underline mt-1 block">
                                 View Full Image
                             </a>
                         </div>

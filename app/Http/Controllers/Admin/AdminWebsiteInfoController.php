@@ -62,10 +62,11 @@ class AdminWebsiteInfoController extends Controller
 
         // Save logo if uploaded
         if ($request->hasFile('logo')) {
-            if ($info->logo && Storage::exists('public/' . $info->logo)) {
-                Storage::delete('public/' . $info->logo);
+            $disk = config('filesystems.default');
+            if ($info->logo && Storage::disk($disk)->exists($info->logo)) {
+                Storage::disk($disk)->delete($info->logo);
             }
-            $info->logo = $request->file('logo')->store('website', 'public');
+            $info->logo = $request->file('logo')->store('website', $disk);
         }
 
         // Assign general fields

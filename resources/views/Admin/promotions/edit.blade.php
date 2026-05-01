@@ -52,7 +52,7 @@
             <label for="image" class="block text-gray-700 font-medium">Current Image</label>
             @if ($promotion->image)
                 <div class="mb-2">
-                    <img src="{{ asset('storage/' . $promotion->image) }}"
+                    <img src="{{ Storage::url($promotion->image) }}"
                          alt="Promotion Image"
                          class="w-32 h-32 object-cover rounded-md border">
                 </div>

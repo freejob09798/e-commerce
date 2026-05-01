@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     
     @if (!empty($websiteInfo->logo))
-        <link rel="icon" type="image/png" href="{{ asset('storage/' . $websiteInfo->logo) }}?v={{ time() }}">
+        <link rel="icon" type="image/png" href="{{ Storage::url($websiteInfo->logo) }}?v={{ time() }}">
     @endif
     
     <!-- Custom theme CSS -->
@@ -106,7 +106,7 @@
                     <div class="d-flex flex-wrap align-items-center mb-3 border-bottom pb-2">
                         <div class="me-3" style="width:50px; height:50px;">
                             @if($item->product->photo1)
-                                <img src="{{ asset('storage/'.$item->product->photo1) }}" class="img-fluid rounded" alt="{{ $item->product->name }}">
+                                <img src="{{ Storage::url($item->product->photo1) }}" class="img-fluid rounded" alt="{{ $item->product->name }}">
                             @else
                                 <i class="bi bi-box" style="font-size:2rem;"></i>
                             @endif
@@ -160,7 +160,7 @@
                     <div class="d-flex align-items-center mb-2">
                         <div class="me-2" style="width:50px; height:50px;">
                             @if($item->product->photo1)
-                                <img src="{{ asset('storage/'.$item->product->photo1) }}" class="img-fluid rounded" alt="{{ $item->product->name }}">
+                                <img src="{{ Storage::url($item->product->photo1) }}" class="img-fluid rounded" alt="{{ $item->product->name }}">
                             @else
                                 <i class="bi bi-box" style="font-size:2rem;"></i>
                             @endif

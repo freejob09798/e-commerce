@@ -60,7 +60,7 @@
                     <td class="px-4 py-2 border-b">{{ $promotion->title }}</td>
                     <td class="px-4 py-2 border-b">
                         @if($promotion->image)
-                            <img src="{{ asset('storage/' . $promotion->image) }}"
+                            <img src="{{ Storage::url($promotion->image) }}"
                                  alt="{{ $promotion->title }}"
                                  class="w-16 h-16 object-cover rounded-md border">
                         @else

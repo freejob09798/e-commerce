@@ -16,6 +16,7 @@ use App\Http\Controllers\Client\StaticPagesController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 // Default route → Client page (no auth required)

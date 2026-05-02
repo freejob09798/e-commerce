@@ -64,7 +64,7 @@ class AdminController extends Controller
         $topSelling = $this->getTopSellingProducts();
         $websiteInfo = WebsiteInfo::first(); // Get the first (and only) website info record
 
-        return view('Admin.dashboard', [
+        return view('admin.dashboard', [
             'orders'           => $orders,
             'totalProducts'    => $stats['total_products'],
             'totalOrders'      => $stats['total_orders'],
@@ -95,7 +95,7 @@ class AdminController extends Controller
 
     public function showLogin()
     {
-        return view('Admin.auth.login');
+        return view('admin.auth.login');
     }
 
 

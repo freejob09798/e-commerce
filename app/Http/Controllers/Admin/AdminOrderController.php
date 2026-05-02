@@ -58,7 +58,7 @@ class AdminOrderController extends Controller
         $orders = $ordersQuery->latest()->paginate(15)->withQueryString();
         $websiteInfo = WebsiteInfo::first();
 
-        return view('Admin.orders.index', compact('orders', 'websiteInfo'));
+        return view('admin.orders.index', compact('orders', 'websiteInfo'));
     }
 
     public function show(string $id)
@@ -73,7 +73,7 @@ class AdminOrderController extends Controller
 
         $websiteInfo = WebsiteInfo::first();
 
-        return view('Admin.orders.show', compact('order', 'websiteInfo'));
+        return view('admin.orders.show', compact('order', 'websiteInfo'));
     }
 
     public function updateOrderStatus(Request $request, string $id)

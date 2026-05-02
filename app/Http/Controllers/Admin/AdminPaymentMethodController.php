@@ -20,12 +20,12 @@ class AdminPaymentMethodController extends Controller
     public function index(): View
     {
         $paymentMethods = PaymentMethod::latest()->paginate(10);
-        return view('Admin.payment_methods.index', compact('paymentMethods'));
+        return view('admin.payment_methods.index', compact('paymentMethods'));
     }
 
     public function create(): View
     {
-        return view('Admin.payment_methods.create');
+        return view('admin.payment_methods.create');
     }
 
     public function store(PaymentMethodStoreRequest $request): RedirectResponse
@@ -38,7 +38,7 @@ class AdminPaymentMethodController extends Controller
 
     public function edit(PaymentMethod $paymentMethod): View
     {
-        return view('Admin.payment_methods.edit', compact('paymentMethod'));
+        return view('admin.payment_methods.edit', compact('paymentMethod'));
     }
 
     public function update(PaymentMethodUpdateRequest $request, PaymentMethod $paymentMethod): RedirectResponse

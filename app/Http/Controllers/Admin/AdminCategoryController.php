@@ -14,13 +14,13 @@ class AdminCategoryController extends Controller
         // Fetch categories, latest first, 10 per page
         $categories = Category::latest()->paginate(10);
 
-        return view('Admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     // Show create form
     public function create()
     {
-        return view('Admin.categories.create');
+        return view('admin.categories.create');
     }
 
     // Store new category
@@ -40,7 +40,7 @@ class AdminCategoryController extends Controller
      // Show edit form
     public function edit(Category $category)
     {
-        return view('Admin.categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     // Update category
@@ -79,7 +79,7 @@ class AdminCategoryController extends Controller
         $categories->appends(['query' => $query]);
 
         // Return the same view with filtered results
-        return view('Admin.categories.index', compact('categories', 'query'));
+        return view('admin.categories.index', compact('categories', 'query'));
     }
     
 }

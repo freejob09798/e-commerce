@@ -16,13 +16,13 @@ class AdminProductController extends Controller
             ->latest() // optional: order by latest
             ->paginate(10);
 
-        return view('Admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
     {
         $categories = Category::all();
-        return view('Admin.products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -58,7 +58,7 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('Admin.products.edit', compact('product', 'categories'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
    public function update(Request $request, Product $product)
@@ -115,6 +115,6 @@ class AdminProductController extends Controller
             $products->appends(['query' => $query]);
 
             // Return the same index view with filtered results
-            return view('Admin.products.index', compact('products', 'query'));
+            return view('admin.products.index', compact('products', 'query'));
         }
 }

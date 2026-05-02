@@ -25,7 +25,7 @@ class ClientController extends Controller
         $products   = Product::with('category')->latest()->simplePaginate(8); 
         $promotions = Promotion::where('is_active', true)->latest()->get(); // Get active promotions
         $websiteInfo = WebsiteInfo::first(); // Get the first (and only) website info record
-        return view('Client.layouts.client', compact('categories', 'products', 'promotions', 'websiteInfo'));
+        return view('client.layouts.client', compact('categories', 'products', 'promotions', 'websiteInfo'));
     }
 
     // Search products by name
@@ -44,7 +44,7 @@ class ClientController extends Controller
 
         $websiteInfo = WebsiteInfo::first(); // Get the first (and only) website info record
 
-        return view('Client.layouts.client', [
+        return view('client.layouts.client', [
             'categories' => Category::all(),
             'products'   => $products,
             'promotions' => Promotion::where('is_active', true)->latest()->get(),
@@ -56,19 +56,19 @@ class ClientController extends Controller
     public function cart()
     {
         $websiteInfo = WebsiteInfo::first(); // Get the first (and only) website info record
-        return view('Client.cart.index',compact('websiteInfo')); // 
+        return view('client.cart.index',compact('websiteInfo')); // 
     }
 
       // Show login page
     public function showLogin()
     {
-        return view('Client.auth.login');
+        return view('client.auth.login');
     }
 
     // Show registration page
     public function showRegister()
     {
-        return view('Client.auth.register');
+        return view('client.auth.register');
     }
 
     public function show_product(Product $product)
@@ -102,7 +102,7 @@ class ClientController extends Controller
             $products = Product::with('category')->where('category_id', $id)->latest()->simplePaginate(8);
         }
 
-        return view('Client.layouts.client', compact('categories', 'products', 'promotions','websiteInfo'));
+        return view('client.layouts.client', compact('categories', 'products', 'promotions','websiteInfo'));
     }
  
 }

@@ -21,12 +21,12 @@ class AdminCityController extends Controller
     public function index(): View
     {
         $cities = City::withCount('townships')->latest()->paginate(15);
-        return view('Admin.cities.index', compact('cities'));
+        return view('admin.cities.index', compact('cities'));
     }
 
     public function create(): View
     {
-        return view('Admin.cities.create');
+        return view('admin.cities.create');
     }
 
     public function store(CityStoreRequest $request): RedirectResponse
@@ -38,7 +38,7 @@ class AdminCityController extends Controller
 
     public function edit(City $city): View
     {
-        return view('Admin.cities.edit', compact('city'));
+        return view('admin.cities.edit', compact('city'));
     }
 
     public function update(CityUpdateRequest $request, City $city): RedirectResponse

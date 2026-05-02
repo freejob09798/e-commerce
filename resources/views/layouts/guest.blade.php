@@ -45,7 +45,7 @@
     <body class="font-sans antialiased bg-gradient-to-br from-pink-50 via-pink-100 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen flex flex-col">
 
         <!-- Navbar -->
-        @include('Client.components.navbar')
+        @include('client.components.navbar')
 
         <!-- Main Content Wrapper -->
         <div class="flex flex-col sm:justify-center items-center flex-1 w-full pt-6 sm:pt-12 px-4">
@@ -56,7 +56,7 @@
         </div>
 
         <!-- Footer -->
-        @include('Client.components.footer')
+        @include('client.components.footer')
 
         <!-- JS Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

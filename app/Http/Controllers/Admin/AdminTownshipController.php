@@ -29,13 +29,13 @@ class AdminTownshipController extends Controller
         $townships = $query->latest()->paginate(15);
         $cities = City::active()->orderBy('name')->get();
 
-        return view('Admin.townships.index', compact('townships', 'cities'));
+        return view('admin.townships.index', compact('townships', 'cities'));
     }
 
     public function create(): View
     {
         $cities = City::active()->orderBy('name')->get();
-        return view('Admin.townships.create', compact('cities'));
+        return view('admin.townships.create', compact('cities'));
     }
 
     public function store(TownshipStoreRequest $request): RedirectResponse
@@ -49,7 +49,7 @@ class AdminTownshipController extends Controller
     public function edit(Township $township): View
     {
         $cities = City::active()->orderBy('name')->get();
-        return view('Admin.townships.edit', compact('township', 'cities'));
+        return view('admin.townships.edit', compact('township', 'cities'));
     }
 
     public function update(TownshipUpdateRequest $request, Township $township): RedirectResponse

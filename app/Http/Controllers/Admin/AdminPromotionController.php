@@ -11,7 +11,7 @@ class AdminPromotionController extends Controller
     public function index()
     {
         $promotions = Promotion::latest()->paginate(10);
-        return view('Admin.promotions.index', compact('promotions'));
+        return view('admin.promotions.index', compact('promotions'));
     }
 
     public function store(Request $request)
@@ -67,18 +67,18 @@ class AdminPromotionController extends Controller
     // Routing methods
     public function create_promotion()
     {
-        return view('Admin.promotions.create');
+        return view('admin.promotions.create');
     }
 
   public function edit_promotion(Promotion $promotion)
     {
         // Pass the promotion to the view
-        return view('Admin.promotions.edit', compact('promotion'));
+        return view('admin.promotions.edit', compact('promotion'));
     }
 
     public function view_promotion()
     {
-        return view('Admin.promotions.create');
+        return view('admin.promotions.create');
     }
 
     // Search functionality
@@ -96,7 +96,7 @@ class AdminPromotionController extends Controller
         // Preserve the search query when paginating
         $promotions->appends(['query' => $query]);
 
-        return view('Admin.promotions.index', compact('promotions', 'query'));
+        return view('admin.promotions.index', compact('promotions', 'query'));
     }
 
 

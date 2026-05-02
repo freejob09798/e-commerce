@@ -14,7 +14,7 @@ class AdminWebsiteInfoController extends Controller
     public function edit()
     {
         $info = WebsiteInfo::first(); // Assume only one record
-        return view('Admin.website_info.index', compact('info'));
+        return view('admin.website_info.index', compact('info'));
     }
 
     // Update website information
